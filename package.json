@@ -6,8 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "wrangler dev",
-    "build": "echo 'Build completed - Ready for deployment'",
-    "build:worker": "echo 'Worker build completed'",
+    "build": "mkdir -p dist && esbuild src/index.js --bundle --outfile=dist/_worker.js --format=esm --target=es2022",
     "deploy": "wrangler deploy",
     "test": "echo 'No tests configured'"
   },
@@ -23,6 +22,7 @@
   },
   "homepage": "https://github.com/120L021101/free-network#readme",
   "devDependencies": {
+    "esbuild": "^0.27.3",
     "wrangler": "^4.71.0"
   }
 }

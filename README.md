@@ -50,8 +50,11 @@ GET /
 ### DoH 查询
 
 ```
-POST /resolve?ip4=<IPv4>&ip6=<IPv6>&ech=<域名>
+POST /dns-query?ip4=<IPv4>&ip6=<IPv6>&ech=<域名>
 Content-Type: application/dns-message
+
+GET /dns-query?dns=<base64url>&ip4=<IPv4>
+Accept: application/dns-message
 ```
 
 **参数说明:**
@@ -82,7 +85,7 @@ Content-Type: application/dns-message
 1. 打开 `chrome://settings/security`
 2. 找到「使用安全 DNS」选项
 3. 选择「使用自定义提供商」
-4. 输入: `https://your-worker.workers.dev/resolve?ip4=YOUR_PREFERRED_IP`
+4. 输入: `https://your-worker.dev/dns-query?ip4=YOUR_PREFERRED_IP`
 
 ## 参考资料
 

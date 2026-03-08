@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "function": {
+    "entry": "dist/_worker.js"
+  }
+}
