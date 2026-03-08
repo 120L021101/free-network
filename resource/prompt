@@ -1,0 +1,18 @@
+通过ip4/ip6参数传递CF优选IP
+path不要用/dns-query
+默认页面伪装404
+Workers无法访问CF的IP段，采用Google的DoH服务
+Chrome开启DoH后会并行查询A AAAA HTTPS记录，HTTPS记录仅用于获取alpn和ECH
+
+ECH Fronting:
+通过其他域名的HTTPS记录获取ECHconfig并修改
+CF的ECHconfig从cloudflare-ech.com获取
+Mata的ECHconfig目前固定为AEj+DQBEAQAgACAdd+scUi0IYFsXnUIU7ko2Nd9+F8M26pAGZVpz/KrWPgAEAAEAAWQVZWNoLXB1YmxpYy5hdG1ldGEuY29tAAA=
+
+DNS记录的修改逻辑:
+X会负载均衡到自有IP/fastly，且不支持IPv6访问，如果是X的域名则直接返回CF优选IP的A 记录，AAAA记录返回空，并且HTTPS记录采用CF ECH
+查询 A AAAA 记录如果任意记录是 CF IP 则返回 CF 优选IP，否则直接转发
+查询HTTPS记录时，向源DoH查询A和AAAA，如果有任意返回 CF IP 则转发CF ECH，如果有任意返回Meta IP，则转发固定alpn和Meta ECH
+
+CF和Meta的IP段:
+（参见geoip，略）r

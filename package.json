@@ -1,0 +1,28 @@
+{
+  "name": "free-network",
+  "version": "1.0.0",
+  "description": "通信自由 - DoH with ECH Support",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "build": "echo 'Build completed - Ready for deployment'",
+    "build:worker": "echo 'Worker build completed'",
+    "deploy": "wrangler deploy",
+    "test": "echo 'No tests configured'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/120L021101/free-network.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/120L021101/free-network/issues"
+  },
+  "homepage": "https://github.com/120L021101/free-network#readme",
+  "devDependencies": {
+    "wrangler": "^4.71.0"
+  }
+}
