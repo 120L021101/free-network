@@ -1,4 +1,6 @@
 {
-  "version": 1,
-  "functions": "dist/_worker.js"
+  "name": "free-network",
+  "entry": "dist/_worker.js",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install"
 }
